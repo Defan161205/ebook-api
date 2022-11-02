@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controller\HeloController;
 use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\BookController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -38,7 +39,7 @@ Route::get('/books', [BookController::class, 'index']);
 Route::get('/Books/{id}', [BookController::class, 'show']);
 Route::get('/Authors', [AuthorController::class, 'index']);
 Route::get('/books/{id}', [AuthorController::class, 'show']);
-
+Route::resource('books', BookController::class);
 //protected routes
 Route::middleware('auth:sanctum')->group(function () {
     // Route::resource('books', BookController::class)->except('create', 'edit', 'show' 'index');
